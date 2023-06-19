@@ -32,3 +32,6 @@ venv_krystian/
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+# JetBrains Folder
+.idea/
