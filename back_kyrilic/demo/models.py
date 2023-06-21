@@ -9,7 +9,7 @@ class Book(models.Model):
 
     published = models.DateField(auto_now=True)
 
-    cover = models.FileField(upload_to="covers/", default='settings.MEDIA_ROOT/logos/anonymous.jpg')
+    cover = models.FileField(upload_to="covers/", blank=True)
 
     images = models.ImageField(upload_to="covers/",
                                height_field=400,
