@@ -1,6 +1,12 @@
 from django.shortcuts import render, HttpResponse
 from django.views import View
 from .models import Book
+from django.shortcuts import render
+
+
+def template_view(request):
+    return render(request, 'first_template.html')
+
 
 
 class ClassView(View):
