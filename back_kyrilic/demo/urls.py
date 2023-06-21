@@ -1,8 +1,9 @@
 from django.urls import path
-from . import views
-from .views import DemoView
+from .views import DemoView, kyrilic, template_func
+
 
 urlpatterns = [
-    path('', views.kyrilic),
+    path('', kyrilic),
     path('class/', DemoView.as_view()),
+    path('templates/', template_func),
 ]
