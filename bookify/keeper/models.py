@@ -7,7 +7,7 @@ class Book(models.Model):
     price = models.DecimalField(max_digits=4, decimal_places=2, default=0)
     creation_date = models.DateField(auto_now_add=True)
     owned = models.BooleanField(default=False)
-    cover = models.FileField(upload_to="image/")
+    cover = models.FileField(upload_to="image/", default="static/images/default_cover.png")
 
     def __str__(self) -> str:
         return self.title 
