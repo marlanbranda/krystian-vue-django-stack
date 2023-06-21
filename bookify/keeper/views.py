@@ -5,7 +5,10 @@ from django.shortcuts import render
 
 
 def template_view(request):
-    return render(request, 'first_template.html')
+    
+    books = Book.objects.all()
+
+    return render(request, 'first_template.html', {'books': books})
 
 
 

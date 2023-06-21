@@ -9,5 +9,16 @@
     
     <h1>This is my first template </h1>
 
+    <p>{{ books }}</p>
+
+    {% for book in books%}
+    <ul>
+        {% if book.owned %}
+        <li> {{ book.title }} </li>
+        {% endif %}
+    </ul>
+    {% endfor %}
+
+
 </body>
 </html>
