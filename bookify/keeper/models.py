@@ -30,3 +30,12 @@ class Character(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+
+class Author(models.Model):
+    name = models.CharField(max_length=60, blank=False, null=False)
+    book = models.ManyToManyField(Book, related_name='author')
+
+    def __str__(self) -> str:
+        return self.name
+    

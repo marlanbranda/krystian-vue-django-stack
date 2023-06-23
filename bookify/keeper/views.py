@@ -4,8 +4,9 @@ from .models import Book, Character
 from django.shortcuts import render
 
 from rest_framework import viewsets
-from .serializers import BookSerializer, CharacterSerializer
+from .serializers import BookSerializer, CharacterSerializer, BookMiniSerializer
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.response import Response
 
 
 class BookViewSet(viewsets.ModelViewSet):
@@ -19,6 +20,16 @@ class CharacterViewSet(viewsets.ModelViewSet):
     queryset = Character.objects.all()
     authentication_classes = (TokenAuthentication, )
 
+
+class BookMiniViewSet(viewsets.ModelViewSet):
+    serializer_class = BookMiniSerializer
+    queryset = Book.objects.all()
+    authentication_classes = (TokenAuthentication,) 
+            
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = BookSerializer(instance)
+        return Response(serializer.data)
 
 
 def template_view(request):
