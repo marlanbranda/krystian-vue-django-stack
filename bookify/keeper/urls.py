@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import function_view, ClassView, template_view, BookViewSet
+from .views import function_view, ClassView, template_view, BookViewSet, CharacterViewSet
 
 from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register('books', BookViewSet)
+router.register('characters', CharacterViewSet)
 
 
 urlpatterns = [

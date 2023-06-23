@@ -22,3 +22,11 @@ class BookISBN(models.Model):
 
     def __str__(self) -> str:
         return self.isbn_10
+    
+
+class Character(models.Model):
+    name = models.CharField(max_length=60, null=False)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='characters')
+
+    def __str__(self) -> str:
+        return self.name
