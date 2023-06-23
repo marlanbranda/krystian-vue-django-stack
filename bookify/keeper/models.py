@@ -8,6 +8,17 @@ class Book(models.Model):
     creation_date = models.DateField(auto_now_add=True)
     owned = models.BooleanField(default=False)
     cover = models.FileField(upload_to="image/", default="static/images/default_cover.png")
+    
+    # basak = models.CharField(max_length=50, null=False)
+    isbn = models.OneToOneField("BookISBN", on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self) -> str:
         return self.title 
+
+
+class BookISBN(models.Model):
+    isbn_10 = models.CharField(max_length=10, blank=True)
+    isbn_13 = models.CharField(max_length=14, blank=True)
+
+    def __str__(self) -> str:
+        return self.isbn_10
